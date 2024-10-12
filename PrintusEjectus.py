@@ -40,9 +40,9 @@ FILESUFFIX = "_pushed" # Suffix added to the output file
 COOLINGTEMP = 30 # Temperature to wait for before pushing the print off the bed
 COOLOFFNOZZLE = f"M109 S{COOLINGTEMP}; Waits for the nozzle to cool down\n" # This is the line that waits for the nozzle to cool down
 HOMEXY = "G28 X Y; Homes the X and Y axis\n" # Homes the X and Y axis
-GOTOBACK = "G1 X• Y260; Goes to the back of the printer\n" # Moves the print head to the back of printer without going down yet
+GOTOBACK = "G1 X• Y260  F4000; Goes to the back of the printer\n" # Moves the print head to the back of printer without going down yet
 GOTOBED = "G28 Z; Goes to the bed for print removal\n" # This is the line that moves the print head to the bed
-PUSHCOORDINATES = "G1 Y20; Push print off bed\n" # This is the line that pushes the print off the bed
+PUSHCOORDINATES = "G1 Y20 F1000; Push print off bed\n" # This is the line that pushes the print off the bed
 
 # WARNING: The "•" in some instructions will be replaced with the correct push location, make sure to keep it in the string !
 
@@ -133,8 +133,6 @@ def create_output(lines, fileID):
             print("\tMean X coordinate: ~" + str(meanCoordinate) + "mm")
 
         # Inserts the go to bed and push coordinates after the end of the print instruction
-
-            
         for line in lines:
             if line == PRINTEND:
                 file.write(line)
