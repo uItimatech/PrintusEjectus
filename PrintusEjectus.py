@@ -22,6 +22,8 @@ import re
 # -------------------------------------------------------------------------------------------------
 # !!! WARNING: Make sure to change the following variables to match your printer's print format !!!
 # -------------------------------------------------------------------------------------------------
+# (The default values are for Qidi X-Plus 3 printers)
+
 
 # ----- Input formatting -----
 FILEEXTENSION = ".gcode" # File extension of the print files, change if needed
